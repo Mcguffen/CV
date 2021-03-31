@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first CV</title>
+    <link rel="stylesheet" href="./cv.css">
+    <link rel=icon href=./favicon.ico type=image/x-icon>
+    <!-- <style>
+        body{
+             background-color: #ddd;
+        }
+        h1{
+            text-align: center;
+            color: red;
+        }
+    </style> -->
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <script src="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"></script>
+</head>
+<body>
+    <div class="topNavBar">
+        <div class="topNavBarInner clearfix">
+            <!-- alt当图片加载失败的时候告诉别人这是个log图 -->
+            <a href="#" class="logo" alt="logo" style="float: left;">
+                <span class="han">Han</span><span class="shanYang">shanyang</span>
+            </a>
+        
+            <nav style="float:right">
+                <!-- unorder list无序列表 -->
+                <ul class="clearfix">
+                    <!-- list -->
+                    <li><a href="#">关于</a></li>
+                    <li><a href="#">技能</a></li>
+                    <li><a href="#">作品</a></li>
+                    <li><a href="#">博客</a></li>
+                    <li><a href="#">日历</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">其他</a></li>
+                    <li><a href="#">全部</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 背景图 -->
+    <div class="banner" >
+        <div class="mask">
+
+        </div>
+    </div>
+    <!-- 主要内容 class取名直接描述是声明东西-->
+    <main>
+        <div class="userCard">
+        <div class="pictureAndText clearfix">
+            <!-- 头像图片 -->
+            <div class="picture">
+                <img src="./img/ava.png" width="299" height="404" alt="头像">
+            </div>
+        <!-- 文字描述 -->
+            <div class="text">
+                <div class="summary">
+                    <span class="welcome">Hello
+                        <span class="triangle"></span>
+                    </span>
+                    <!-- 内敛样式 就是在标签里面写样式 -->
+                    <!-- <h1 style="text-align: center;color: red;">阳</h1> -->
+                    <h1>阳</h1>
+                    <p>前端开发工程师</p>
+                    <!-- 水平分割线hr -->
+                    <hr>
+                    <!-- 描述列表 -->
+                    <dl>
+                        <!-- description term 单词 -->
+                        <dt>年龄</dt>
+                        <!-- decription definitio 单词定义 -->
+                        <dd>18</dd>
+                        <dt>所在城市</dt>
+                        <dd>北京</dd>
+                        <dt>邮箱</dt>
+                        <dd>xxxx@163com</dd>
+                        <dt>手机</dt>
+                        <dd>157xxxxxxx</dd>
+            
+                    </dl>
+                </div>
+            </div>
+        </div> 
+        <footer class="media">
+            <a href="https://github.com/Mcguffen">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-github1"></use>
+                </svg>
+            </a>
+            <a href="mailto:15726507427@163.com">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-m=mail"></use>
+                </svg>
+            </a>
+            <a href="https://hanshanyang.xyz">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-blogger"></use>
+                </svg>
+            </a>
+        </footer>
+        
+    </div>
+        <p class="downloadCv-wraaper">
+        <!-- 简历下载 -->
+        <a class="downloadCv" href="./cv.pdf" target="_blank" download>下载简历</a>
+        </p>
+
+        <!-- 一段文字 自我介绍 -->
+        <p class="selfIntroduction">
+            韩善阳,前端开发工程师。
+            <!-- br换行 -->
+            <br>
+            技能:前端开发,Node.js开发。
+        </p>
+
+    </main>
+
+    <section class="skills">
+        <h2>技能</h2>
+        <ol class="clearfix">
+            <li>
+                <h3>HTML5 & CSS3</h3>
+                <div class="progressBar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
+            </li>
+            
+            <li>
+                <h3>Javascript</h3>
+                <div class="progressBar">
+                    <div class="progress" style="width: 95%;"></div>
+                </div>
+            </li>
+
+            <li>
+                <h3>Vue</h3>
+                <div class="progressBar">
+                    <div class="progress" style="width: 88%;"></div>
+                </div>
+            </li>
+
+            <li>
+                <h3>React</h3>
+                <div class="progressBar">
+                    <div class="progress" style="width: 89%;"></div>
+                </div>
+            </li>
+
+            <li>
+                <h3>jQuery</h3>
+                <div class="progressBar">
+                    <div class="progress" style="width: 92%;"></div>
+                </div>
+            </li>
+            <li>
+                <h3>HTTP</h3>
+                <div class="progressBar">
+                    <div class="progress" style="width: 96%;"></div>
+                </div>
+            </li>
+        </ol>
+    </section>
+    <section class="portfolio">
+        <h2>作品集</h2>
+        <nav>
+            <ol class="clearfix">
+                <li id="portfolioAll">所有</li>
+                <li id="portfolioNative">原生</li>
+                <li id="portfolioFramework">框架JS&CSS</li>
+            </ol>
+            <div class="bar state-1" id="portfolioBar">
+                <div class="bar-inner">
+
+                </div>
+            </div>
+        </nav>
+
+        <script>
+            portfolioAll.onclick=function(){
+                portfolioBar.className='bar state-1'
+            }
+            portfolioNative.onclick = function () {
+                    portfolioBar.className = 'bar state-2'
+                }
+            portfolioFramework.onclick = function () {
+                    portfolioBar.className = 'bar state-3'
+                }
+        </script>
+
+        <div class="jobs" style="height: 597px;">
+            <div class="big" style="top:0; left:0;">
+                <img src="./img/1.jpeg" alt="作品1">
+            </div>
+            <div class="small" style="top:0; left:645px;">
+                <img src="./img/2.jpeg" alt="作品2">
+            </div>
+            <div class="small" style="top:311px; left:645px;">
+                <img src="./img/3.jpeg" alt="作品3">
+            </div>
+        </div>
+    </section>
+    </body>
+</html>
