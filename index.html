@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My first CV</title>
     <link rel="stylesheet" href="./cv.css">
+    <link rel="stylesheet" href="./loading.css">
     <link rel=icon href=./favicon.ico type=image/x-icon>
     <!-- <style>
         body{
@@ -28,6 +29,9 @@
     <script src="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"></script>
 </head>
 <body>
+    <div id="siteWelcome" class="site-welcome active">
+        <div class="loading"></div>
+    </div>
     <div class="topNavBar">
         <div class="topNavBarInner clearfix">
             <!-- alt当图片加载失败的时候告诉别人这是个log图 -->
@@ -213,5 +217,8 @@
             </div>
         </div>
     </section>
+    <script>
+        siteWelcome.classList.remove('active')
+    </script>
     </body>
 </html>
