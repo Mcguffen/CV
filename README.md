@@ -541,6 +541,17 @@ text-align:center
     display: block;
 }
 ```
+给二级菜单添加动画
+```css
+.topNavBar li.active >.subMenu{
+    display: block;
+    animation: subMenuSlide 0.3s;
+}
+@keyframes subMenuSlide {
+    0%{margin-right: 100%;}
+    100%{margin-right: 0%;}
+}
+```
 ### auto hide asdie 自动隐藏侧边栏
 
 ### gapless slides 无缝轮播

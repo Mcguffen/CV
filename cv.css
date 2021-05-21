@@ -121,6 +121,11 @@ a{
 }
 .topNavBar li.active >.subMenu{
     display: block;
+    animation: subMenuSlide 0.3s;
+}
+@keyframes subMenuSlide {
+    0%{margin-right: 100%;}
+    100%{margin-right: 0%;}
 }
     /* 背下下面的浮动代码 想让谁浮动就给他父级元素取名class=“clearfix” 然后对想浮动的元素的样式添加float: left; */
 .clearfix::after{
