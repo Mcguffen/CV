@@ -348,3 +348,158 @@ body>main{
  ``` css
 text-align:center
  ```
+
+### 添加网址loading动画
+思路
+- 写loading动画的css
+```html
+<body>
+    <div id="siteWelcome" class="site-welcome active">
+        <div class="loading"></div>
+    </div>
+```
+
+```css
+.site-welcome{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #888;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+.site-welcome.active{
+    display: flex;
+}
+.loading{
+
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid red; */
+    position: relative;
+}
+.loading::before,.loading::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    /* border: 1px solid blue; */
+    background: black;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    animation: s 1.5s linear infinite;
+}
+.loading::after{
+    animation-delay: 0.75s;
+}
+@keyframes s {
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100%{
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+    
+}
+```
+- 设定定时器3秒展示loading动画 在body内容的最后一行 因为加载到这里所有都加载完成了。
+```js
+   <script>
+        setTimeout(function(){
+            siteWelcome.classList.remove('active')
+
+        },3000)
+    </script>
+    </body>
+```
+
+### sticky navbar 黏着的navbar
+- 通过js来添加或者移除class来控制
+``` js
+        window.onscroll = function(){
+            if(window.scrollY > 0){
+                topNavBar.classList.add('sticky')
+            }else{
+                topNavBar.classList.remove('sticky')
+            }
+        }
+```
+- 写sticky样式
+```css
+.topNavBar{
+
+  
+    /* 所有动画1s内做完 */
+    transition: all 1s;
+    color: rgba(255, 255, 255, 0.7);
+    
+}
+.sticky{
+    background: white;
+    padding: 10px 0;
+    /* z-index: 1; */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    color: black;
+}
+```
+### sliding border from left to right
+之前的css是
+```css
+.topNavBar>.topNavBarInner>nav>ul>li>a:hover{
+    /* 当鼠标悬停在a标签上加上下面样式 */
+    /* border: 1px solid red; */
+    /* 但是好像鼠标悬停会动 那是因为每个a标签左右各加1px大小 解决方法 提前就要border不不就ok 只不过是透明的 当悬停的时候变红 */
+    border-bottom: 3px solid #e06567;
+}
+```
+现在推翻我们重新做，用div来做，
+因为相对于a标签相对定位所以得+
+```css
+.topNavBar>.topNavBarInner>nav>ul>li>a{
+    position: relative;
+
+}
+```
+```css
+.topNavBar>.topNavBarInner>nav>ul>li>a:hover::after{
+    /* 当鼠标悬停在a标签上加上下面样式 */
+    position: absolute;
+    content: '';
+    display: block;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: menuSlide 0.3s;
+}
+@keyframes menuSlide {
+    0%{width: 0;}
+    100%{width: 100%;}
+}
+
+```
+### auto highlight navbar
+简而言之就是navbar高亮的内容对应屏幕中心位置的内容
+
+### auto scroll smoonthly 点击navbar平滑滚动到对应内容
+
+### menu hover出现二级菜单
+
+### auto hide asdie 自动隐藏侧边栏
+
+### gapless slides 无缝轮播
+
+### animate when scroll

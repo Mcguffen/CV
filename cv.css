@@ -33,12 +33,24 @@ a{
     padding: 20px 0px;
     /* 脱离文档流 */
     position: fixed;
+    top: 0;
+    left: 0;
     /* 发现咋么rs card和 li的内容又挤在一起了。 */
     width: 100%;
     /* 虽然上面加了宽度后解决了内容其在一起的bug但是出新bug 最左的全部都要出框了 这是因为我们
     topNavBar加了    padding: 20px 16px;  属性
     怎么办 在topNavBar上面再加一层被 然后把这个属性给外层 */
-
+    /* 所以动画1s内做完 */
+    transition: all 1s;
+    color: rgba(255, 255, 255, 0.7);
+    
+}
+.sticky{
+    background: white;
+    padding: 10px 0;
+    z-index: 1;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    color: black;
 }
 .topNavBarInner{
     padding: 0px 16px;
@@ -60,7 +72,7 @@ a{
 .topNavBar>.topNavBarInner>nav>ul>li>a{
     /* 字体默认16px 在开发者工具中找到styles旁边的computed计算出的字体大小 font-size */
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.7);
+    color: inherit;
     /* 字体加粗 */
     font-weight: bold;
     /* 添加border 而且是透明的 等下面悬停的时候改变颜色 */
@@ -74,13 +86,25 @@ a{
     display: block;
     
     border-top: 3px solid transparent;
+    position: relative;
 
 }
-.topNavBar>.topNavBarInner>nav>ul>li>a:hover{
+.topNavBar>.topNavBarInner>nav>ul>li>a:hover::after{
     /* 当鼠标悬停在a标签上加上下面样式 */
-    /* border: 1px solid red; */
-    /* 但是好像鼠标悬停会动 那是因为每个a标签左右各加1px大小 解决方法 提前就要border不不就ok 只不过是透明的 当悬停的时候变红 */
-    border-bottom: 3px solid #e06567;
+
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: menuSlide 0.3s;
+}
+@keyframes menuSlide {
+    0%{width: 0;}
+    100%{width: 100%;}
 }
     /* 背下下面的浮动代码 想让谁浮动就给他父级元素取名class=“clearfix” 然后对想浮动的元素的样式添加float: left; */
 .clearfix::after{

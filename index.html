@@ -32,7 +32,7 @@
     <div id="siteWelcome" class="site-welcome active">
         <div class="loading"></div>
     </div>
-    <div class="topNavBar">
+    <div id="topNavBar" class="topNavBar">
         <div class="topNavBarInner clearfix">
             <!-- alt当图片加载失败的时候告诉别人这是个log图 -->
             <a href="#" class="logo" alt="logo" style="float: left;">
@@ -222,6 +222,13 @@
             siteWelcome.classList.remove('active')
 
         },3000)
+        window.onscroll = function(){
+            if(window.scrollY > 0){
+                topNavBar.classList.add('sticky')
+            }else{
+                topNavBar.classList.remove('sticky')
+            }
+        }
     </script>
     </body>
 </html>
