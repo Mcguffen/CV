@@ -497,7 +497,50 @@ text-align:center
 ### auto scroll smoonthly 点击navbar平滑滚动到对应内容
 
 ### menu hover出现二级菜单
+```html
+                    <li class="menuTigger"><a href="#">作品</a>
+                        <ul class="subMenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
+                    </li>
+```
+```js
+        let liTags = document.getElementsByClassName('menuTigger')
+        for(let i=0; i<liTags.length;i++){
+            liTags[i].onmouseenter =function(x){
+                x.currentTarget.classList.add('active')
+            }
+            liTags[i].onmouseleave = function(x){
+                x.currentTarget.classList.remove('active')
+            }
+        }
+```
+首先就是通过判断li是否有active来判断是否出现二级菜单和navbar下滑高亮
+所以a:hover变成了li.active
+```css
+.topNavBar>.topNavBarInner>nav>ul>li.active>a::after{···}
+.topNavBar>.topNavBarInner>nav>ul>li{
 
+        position: relative;
+    }
+.topNavBar .subMenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #EFEFEF;
+    color: #3d4451;
+}
+.topNavBar .subMenu > li{
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+.topNavBar li.active >.subMenu{
+    display: block;
+}
+```
 ### auto hide asdie 自动隐藏侧边栏
 
 ### gapless slides 无缝轮播

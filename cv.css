@@ -68,6 +68,7 @@ a{
         /* 添加每个字之间的间距 量一下 */
         margin-left: 17px;
         margin-right: 17px;
+        position: relative;
     }
 .topNavBar>.topNavBarInner>nav>ul>li>a{
     /* 字体默认16px 在开发者工具中找到styles旁边的computed计算出的字体大小 font-size */
@@ -89,7 +90,7 @@ a{
     position: relative;
 
 }
-.topNavBar>.topNavBarInner>nav>ul>li>a:hover::after{
+.topNavBar>.topNavBarInner>nav>ul>li.active>a::after{
     /* 当鼠标悬停在a标签上加上下面样式 */
 
     content: '';
@@ -105,6 +106,21 @@ a{
 @keyframes menuSlide {
     0%{width: 0;}
     100%{width: 100%;}
+}
+.topNavBar .subMenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #EFEFEF;
+    color: #3d4451;
+}
+.topNavBar .subMenu > li{
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+.topNavBar li.active >.subMenu{
+    display: block;
 }
     /* 背下下面的浮动代码 想让谁浮动就给他父级元素取名class=“clearfix” 然后对想浮动的元素的样式添加float: left; */
 .clearfix::after{
