@@ -43,9 +43,9 @@
                 <!-- unorder list无序列表 -->
                 <ul class="clearfix">
                     <!-- list -->
-                    <li><a href="#">关于</a></li>
-                    <li><a href="#">技能</a></li>
-                    <li class="menuTigger"><a href="#">作品</a>
+                    <li><a href="#siteAbout">关于</a></li>
+                    <li><a href="#siteSkills">技能</a></li>
+                    <li><a href="#siteWorks">作品</a>
                         <ul class="subMenu">
                             <li>作品1</li>
                             <li>作品2</li>
@@ -70,7 +70,7 @@
     </div>
     <!-- 主要内容 class取名直接描述是声明东西-->
     <main>
-        <div class="userCard">
+        <div id="siteAbout"class="userCard">
         <div class="pictureAndText clearfix">
             <!-- 头像图片 -->
             <div class="picture">
@@ -139,7 +139,7 @@
 
     </main>
 
-    <section class="skills">
+    <section id="siteSkills" class="skills">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -184,7 +184,7 @@
             </li>
         </ol>
     </section>
-    <section class="portfolio">
+    <section id="siteWorks" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -235,7 +235,7 @@
                 topNavBar.classList.remove('sticky')
             }
         }
-        let liTags = document.getElementsByClassName('menuTigger')
+        let liTags = document.querySelectorAll('nav > ul > li')
         for(let i=0; i<liTags.length;i++){
             liTags[i].onmouseenter =function(x){
                 x.currentTarget.classList.add('active')
@@ -244,6 +244,23 @@
                 x.currentTarget.classList.remove('active')
             }
         }
+
+        let aTags = document.querySelectorAll('nav > ul > li > a')
+        for(let i=0; i<aTags.length;i++){
+            aTags[i].onclick =function(x){
+                // 阻止默认动作 即浏览器锚点 你点击没有反应
+                x.preventDefault()
+                // 获取用户点击的a标签
+                let a = x.currentTarget
+                // 获取a标签的href属性 即 '#siteAbout'
+                let href = a.getAttribute('href')
+                // 根据href得到元素
+                let element = document.querySelector(href)
+                //
+                let top = element.offsetTop
+                window.scrollTo(0, top - 80)
+            }
+        }   
     </script>
     </body>
 </html>

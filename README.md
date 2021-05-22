@@ -493,6 +493,31 @@ text-align:center
 ```
 ### auto highlight navbar
 简而言之就是navbar高亮的内容对应屏幕中心位置的内容
+当然可以用锚点来做，但是因为我们有topNavbar而且背景色不是透明，有一定宽度
+所以我们锚点对应的位置需要调整
+所以，我们需要通过一些api来调整
+```js
+        let aTags = document.querySelectorAll('nav > ul > li > a')
+        for(let i=0; i<aTags.length;i++){
+            aTags[i].onclick =function(x){
+                // 阻止默认动作 即浏览器锚点 你点击没有反应
+                x.preventDefault()
+                // 获取用户点击的a标签
+                let a = x.currentTarget
+                // 获取a标签的href属性 即 '#siteAbout'
+                let href = a.getAttribute('href')
+                // 根据href得到元素
+                let element = document.querySelector(href)
+                //
+                let top = element.offsetTop
+                window.scrollTo(0, top - 80)
+            }
+        }  
+```
+
+
+
+
 
 ### auto scroll smoonthly 点击navbar平滑滚动到对应内容
 
@@ -551,6 +576,25 @@ text-align:center
     0%{margin-right: 100%;}
     100%{margin-right: 0%;}
 }
+```
+给二级菜单加阴影
+.topNavBar .subMenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #EFEFEF;
+    color: #3d4451;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+解决bug：       
+```js
+ let liTags = document.querySelectorAll('nav > ul > li')
+```
+替换
+```js
+        let liTags = document.getElementsByClassName('menuTigger')
+
 ```
 ### auto hide asdie 自动隐藏侧边栏
 

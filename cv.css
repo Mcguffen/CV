@@ -114,6 +114,7 @@ a{
     top: 100%;
     background: #EFEFEF;
     color: #3d4451;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .topNavBar .subMenu > li{
     white-space: nowrap;
