@@ -514,8 +514,47 @@ text-align:center
             }
         }  
 ```
+### 点击关于慢慢的跳转到关于
+之前我们做动画都可以用css来做，但是这次不行，这次控制滚动条，只能通过
+js来做。[例子](https://github.com/Mcguffen/js-animation)
 
+```js
+       let aTags = document.querySelectorAll('nav > ul > li > a')
+        for(let i=0; i<aTags.length;i++){
+            aTags[i].onclick =function(x){
+                // 阻止默认动作 即浏览器锚点 你点击没有反应
+                x.preventDefault()
+                // 获取用户点击的a标签
+                let a = x.currentTarget
+                // 获取a标签的href属性 即 '#siteAbout'
+                let href = a.getAttribute('href')
+                // 根据href得到元素
+                let element = document.querySelector(href)
+                //
+                let top = element.offsetTop
+                // 让滚动条缓慢移动
+                let n = 25 // 一共动多少次
+                // 想在500毫秒 0.5秒内动25次
+                let duration = 500 / n // 多久动一次你
+                // 当前高度也就是在用户点击之前的高度
+                let currentTop = window.scrollY
+                // 用户点击后想要定位到的高度
+                let targetTop = top - 80
+                // 每次动的距离是多少
+                let distance = (targetTop - currentTop) / n
+                let i = 0
+                let id = setInterval(() => {
+                    if(i === n){
+                        window.clearInterval(id)
+                        return
+                    }
+                    i += 1
+                    window.scrollTo(0, currentTop + distance * i)
 
+                }, duration);
+            }
+        } 
+```
 
 
 

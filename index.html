@@ -258,7 +258,26 @@
                 let element = document.querySelector(href)
                 //
                 let top = element.offsetTop
-                window.scrollTo(0, top - 80)
+                // 让滚动条缓慢移动
+                let n = 25 // 一共动多少次
+                // 想在500毫秒 0.5秒内动25次
+                let duration = 500 / n // 多久动一次你
+                // 当前高度也就是在用户点击之前的高度
+                let currentTop = window.scrollY
+                // 用户点击后想要定位到的高度
+                let targetTop = top - 80
+                // 每次动的距离是多少
+                let distance = (targetTop - currentTop) / n
+                let i = 0
+                let id = setInterval(() => {
+                    if(i === n){
+                        window.clearInterval(id)
+                        return
+                    }
+                    i += 1
+                    window.scrollTo(0, currentTop + distance * i)
+
+                }, duration);
             }
         }   
     </script>
