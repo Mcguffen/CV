@@ -221,13 +221,40 @@
             siteWelcome.classList.remove('active')
 
         },3000)
+        // 滚动到指定内容topNavBar对应内容高亮，比如滚动到技能那么topNavBar中的技能下面就出现红色
+        // 思路：1.首先给关键的标签以标记data-x 那些是关键标签呢就是topNavBar上 关于 技能 对应的标签
+        // 2. 然后遍历看哪一个离我们当前滚动高度最近 获取到index
+        // 3. 获取到高亮标签对应的id 通过id获取到对应的a标签，通过a找到li
         window.onscroll = function(){
             if(window.scrollY > 0){
                 topNavBar.classList.add('sticky')
             }else{
                 topNavBar.classList.remove('sticky')
             }
+            let  specialTags = document.querySelectorAll('[data-x]')
+            let minIndex = 0
+            for(let i = 1; i < specialTags.length; i++){
+                if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+                    minIndex = i
+                }
+            }
+            for(let i = 0; i < specialTags.length; i++){
+                specialTags[i].classList.remove('active')
+            }
+            specialTags[minIndex].classList.add('active')
+            let id = specialTags[minIndex].id
+            // console.log(id);
+            let a = document.querySelector('a[href="#'+id+'"]')
+            // console.log(a);
+            let li = a.parentNode
+            // console.log(li);
+            let children = li.parentNode.children
+            for(let i = 0; i < children.length; i++){
+                children[i].classList.remove('active')
+            }
+            li.classList.add('active')
         }
+
         let liTags = document.querySelectorAll('nav > ul > li')
         for(let i=0; i<liTags.length;i++){
             liTags[i].onmouseenter =function(x){

@@ -414,3 +414,6 @@ section.portfolio .jobs > .small{
     position: absolute;
 }
 
+[data-x].active{
+    /* outline: 1px solid red; */
+}
