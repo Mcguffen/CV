@@ -1,316 +1,317 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first CV</title>
-    <link rel="stylesheet" href="./cv.css">
-    <link rel="stylesheet" href="./loading.css">
-    <link rel=icon href=./favicon.ico type=image/x-icon>
+  <title>韩善阳的个人简历</title>
+  <script src="./icon.js"></script>
+  <style type="text/css">
+    .loading{ width: 200px; height: 200px; position: relative; }
 
-    <style type="text/css">
-        .icon {
-           width: 1em; height: 1em;
-           vertical-align: -0.15em;
-           fill: currentColor;
-           overflow: hidden;
-        }
-    </style>
-    <script src="./icon.js"></script>
+    .loading::before,.loading::after{ content: ''; position: absolute; width: 0px; height: 0px; background: black; border-radius: 50%; top: 0; left: 0; bottom: 0; right: 0; margin: auto; animation: s 1.5s linear infinite; }
+    .loading::after{ animation-delay: 0.75s; }
+
+    @keyframes s{ 
+      0%{ width: 0px; height: 0px; opacity: 1; }
+      100%{ width: 100px; height: 100px; opacity: 0; }
+    }
+    .icon { width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; }
+    .site-welcome{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #888; z-index: 1; justify-content: center; align-items: center; }
+    .site-welcome.active{ display: flex; }
+  </style>
+  <link rel="stylesheet" href="./cv.css">
+  <link rel=icon href=./favicon.ico type=image/x-icon>
+  <link rel="stylesheet" href="./loading.css">
+
 </head>
+
 <body>
-    <div id="siteWelcome" class="site-welcome active">
-        <div class="loading"></div>
+  <div id="siteWelcome" class="site-welcome active">
+    <div class="loading"></div>
+  </div>
+  <div id="topNavBar" class="topNavBar">
+    <div class="topNavBar-inner clearfix">
+      <a class="logo" href="#" alt="logo" style="float: left;">
+        <span class="shanYang">Shanyang</span>
+        <span class="han">Han</span>
+      </a>
+      <nav class="menu" style="float: right;">
+        <ul class="clearfix">
+          <li>
+            <a href="#siteAbout">关于</a>
+          </li>
+          <li>
+            <a href="#siteSkills">技能</a>
+          </li>
+          <li>
+            <a href="#siteWorks">作品</a>
+            <ul class="submenu">
+              <li>作品1</li>
+              <li>作品2</li>
+              <li>作品3</li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">博客</a>
+            <ul class="submenu">
+              <li>博客1</li>
+              <li>博客2</li>
+              <li>博客3</li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">日历</a>
+          </li>
+          <li>
+            <a href="#">联系方式</a>
+          </li>
+          <li>
+            <a href="#">其他</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <div id="topNavBar" class="topNavBar">
-        <div class="topNavBarInner clearfix">
-            <!-- alt当图片加载失败的时候告诉别人这是个log图 -->
-            <a href="#" class="logo" alt="logo" style="float: left;">
-                <span class="han">Han</span><span class="shanYang">shanyang</span>
-            </a>
-        
-            <nav style="float:right">
-                <!-- unorder list无序列表 -->
-                <ul class="clearfix">
-                    <!-- list -->
-                    <li><a href="#siteAbout">关于</a></li>
-                    <li><a href="#siteSkills">技能</a></li>
-                    <li><a href="#siteWorks">作品</a>
-                        <ul class="subMenu">
-                            <li>作品1</li>
-                            <li>作品2</li>
-                            <li>作品3</li>
-                        </ul>
-                    </li>
-                    <li><a href="#">博客</a></li>
-                    <li><a href="#">日历</a></li>
-                    <li><a href="#">联系方式</a></li>
-                    <li><a href="#">其他</a></li>
-                    <li><a href="#">全部</a></li>
-                </ul>
-            </nav>
+  </div>
+  <div class="banner">
+    <div class="mask"></div>
+  </div>
+  <main>
+    <div data-x id="siteAbout" class="userCard">
+      <div class="pictureAndText clearfix">
+        <div class="picture">
+          <img src="./img/avatar.jpg" width=299 height=347 alt="头像">
         </div>
-    </div>
-
-    <!-- 背景图 -->
-    <div class="banner" >
-        <div class="mask">
-
+        <div class="text">
+          <div class="summary">
+              <span class="welcome">Hello
+                  <span class="triangle"></span>
+              </span>
+              <!-- 内敛样式 就是在标签里面写样式 -->
+              <!-- <h1 style="text-align: center;color: red;">阳</h1> -->
+              <h1>韩善阳</h1>
+              <p>前端开发工程师</p>
+              <!-- 水平分割线hr -->
+              <hr>
+              <!-- 描述列表 -->
+              <dl>
+                  <!-- description term 单词 -->
+                  <dt>年龄</dt>
+                  <!-- decription definitio 单词定义 -->
+                  <dd>18</dd>
+                  <dt>所在城市</dt>
+                  <dd>北京</dd>
+                  <dt>邮箱</dt>
+                  <dd>xxxx@163com</dd>
+                  <dt>手机</dt>
+                  <dd>157xxxxxxx</dd>
+      
+              </dl>
         </div>
+      </div>
+    </div> 
+      <footer class="media">
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-github"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-Ankerwebicon-"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-weibo"></use>
+          </svg>
+        </a>
+      </footer>
     </div>
-    <!-- 主要内容 class取名直接描述是声明东西-->
-    <main>
-        <div data-x id="siteAbout"class="userCard">
-        <div class="pictureAndText clearfix">
-            <!-- 头像图片 -->
-            <div class="picture">
-                <img src="./img/ava.png" width="299" height="404" alt="头像">
-            </div>
-        <!-- 文字描述 -->
-            <div class="text">
-                <div class="summary">
-                    <span class="welcome">Hello
-                        <span class="triangle"></span>
-                    </span>
-                    <!-- 内敛样式 就是在标签里面写样式 -->
-                    <!-- <h1 style="text-align: center;color: red;">阳</h1> -->
-                    <h1>阳</h1>
-                    <p>前端开发工程师</p>
-                    <!-- 水平分割线hr -->
-                    <hr>
-                    <!-- 描述列表 -->
-                    <dl>
-                        <!-- description term 单词 -->
-                        <dt>年龄</dt>
-                        <!-- decription definitio 单词定义 -->
-                        <dd>18</dd>
-                        <dt>所在城市</dt>
-                        <dd>北京</dd>
-                        <dt>邮箱</dt>
-                        <dd>xxxx@163com</dd>
-                        <dt>手机</dt>
-                        <dd>157xxxxxxx</dd>
-            
-                    </dl>
-                </div>
-            </div>
-        </div> 
-        <footer class="media">
-            <a href="https://github.com/Mcguffen">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-github1"></use>
-                </svg>
-            </a>
-            <a href="mailto:15726507427@163.com">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-m=mail"></use>
-                </svg>
-            </a>
-            <a href="https://hanshanyang.xyz">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-blogger"></use>
-                </svg>
-            </a>
-        </footer>
-        
-    </div>
-        <p class="downloadCv-wraaper">
-        <!-- 简历下载 -->
-        <a class="downloadCv" href="./cv.pdf" target="_blank" download>下载简历</a>
-        </p>
 
-        <!-- 一段文字 自我介绍 -->
-        <p class="selfIntroduction">
-            韩善阳,前端开发工程师。
-            <!-- br换行 -->
-            <br>
-            技能:前端开发,Node.js开发。
-        </p>
+    <p class="downloadResume-wrapper">
+      <a class="downloadResume" href="./resume.pdf" target="_blank" download>下载 PDF 简历</a>
+    </p>
 
-    </main>
+    <p class="selfIntroduction">
+      韩善阳， 前端工程师。
+      <br> 技能：前端开发，Node.js 开发。
+    </p>
 
-    <section data-x id="siteSkills" class="skills">
-        <h2>技能</h2>
-        <ol class="clearfix">
-            <li>
-                <h3>HTML5 & CSS3</h3>
-                <div class="progressBar">
-                    <div class="progress" style="width: 90%;"></div>
-                </div>
-            </li>
-            
-            <li>
-                <h3>Javascript</h3>
-                <div class="progressBar">
-                    <div class="progress" style="width: 95%;"></div>
-                </div>
-            </li>
-
-            <li>
-                <h3>Vue</h3>
-                <div class="progressBar">
-                    <div class="progress" style="width: 88%;"></div>
-                </div>
-            </li>
-
-            <li>
-                <h3>React</h3>
-                <div class="progressBar">
-                    <div class="progress" style="width: 89%;"></div>
-                </div>
-            </li>
-
-            <li>
-                <h3>jQuery</h3>
-                <div class="progressBar">
-                    <div class="progress" style="width: 92%;"></div>
-                </div>
-            </li>
-            <li>
-                <h3>HTTP</h3>
-                <div class="progressBar">
-                    <div class="progress" style="width: 96%;"></div>
-                </div>
-            </li>
-        </ol>
-    </section>
-    <section data-x id="siteWorks" class="portfolio">
-        <h2>作品集</h2>
-        <nav>
-            <ol class="clearfix">
-                <li id="portfolioAll">所有</li>
-                <li id="portfolioNative">原生</li>
-                <li id="portfolioFramework">框架JS&CSS</li>
-            </ol>
-            <div class="bar state-1" id="portfolioBar">
-                <div class="bar-inner">
-
-                </div>
-            </div>
-        </nav>
-
-        <script>
-            portfolioAll.onclick=function(){
-                portfolioBar.className='bar state-1'
-            }
-            portfolioNative.onclick = function () {
-                    portfolioBar.className = 'bar state-2'
-                }
-            portfolioFramework.onclick = function () {
-                    portfolioBar.className = 'bar state-3'
-                }
-        </script>
-
-        <div class="jobs" style="height: 597px;">
-            <div class="big" style="top:0; left:0;">
-                <img src="./img/1.jpeg" alt="作品1">
-            </div>
-            <div class="small" style="top:0; left:645px;">
-                <img src="./img/2.jpeg" alt="作品2">
-            </div>
-            <div class="small" style="top:311px; left:645px;">
-                <img src="./img/3.jpeg" alt="作品3">
-            </div>
+  </main>
+  <section data-x id="siteSkills" class="skills">
+    <h2>技能</h2>
+    <ol class="clearfix">
+      <li>
+        <h3>
+          HTML 5 &amp; CSS 3
+        </h3>
+        <div class="progressBar">
+          <div class="progress" style="width: 10%;"></div>
         </div>
-    </section>
-    <!-- 引入TWEEN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js" integrity="sha512-fJ91rDja9nv9NCUNbvoW69MB1sQlp1d0eJt1NZDJQ1CuwcxReaXUrMCKI23yI9IMnB2hd2fq4PHZZ9UKN/i0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      </li>
+      <li>
+        <h3>
+          JavaScript
+        </h3>
+        <div class="progressBar">
+          <div class="progress" style="width: 20%"></div>
+        </div>
+      </li>
+      <li>
+        <h3>
+          jQuery
+        </h3>
+        <div class="progressBar">
+          <div class="progress" style="width: 30%"></div>
+        </div>
+      </li>
+      <li>
+        <h3>
+          Vue.js
+        </h3>
+        <div class="progressBar">
+          <div class="progress" style="width: 40%"></div>
+        </div>
+      </li>
+      <li>
+        <h3>
+          React.js
+        </h3>
+        <div class="progressBar">
+          <div class="progress"  style="width: 50%"></div>
+        </div>
+      </li>
+      <li>
+        <h3>
+          Node.js
+        </h3>
+        <div class="progressBar">
+          <div class="progress"  style="width: 60%"></div>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section data-x class="portfolio" id="siteWorks">
+    <h2>作品集</h2>
+    <nav>
+      <ol class="clearfix">
+        <li id="portfolio1">所有</li>
+        <li id="portfolio2">框架</li>
+        <li id="portfolio3">原生JS&amp;CSS</li>
+      </ol>
+      <div id="portfolioBar" class="bar state-1">
+        <div class="bar-inner"></div>
+      </div>
+    </nav>
     <script>
-        setTimeout(function(){
-            siteWelcome.classList.remove('active')
-
-        },3000)
-        // 滚动到指定内容topNavBar对应内容高亮，比如滚动到技能那么topNavBar中的技能下面就出现红色
-        // 思路：1.首先给关键的标签以标记data-x 那些是关键标签呢就是topNavBar上 关于 技能 对应的标签
-        // 2. 然后遍历看哪一个离我们当前滚动高度最近 获取到index
-        // 3. 获取到高亮标签对应的id 通过id获取到对应的a标签，通过a找到li
-        window.onscroll = function(){
-            if(window.scrollY > 0){
-                topNavBar.classList.add('sticky')
-            }else{
-                topNavBar.classList.remove('sticky')
-            }
-            let  specialTags = document.querySelectorAll('[data-x]')
-            let minIndex = 0
-            for(let i = 1; i < specialTags.length; i++){
-                if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
-                    minIndex = i
-                }
-            }
-
-            specialTags[minIndex].classList.add('active')
-            let id = specialTags[minIndex].id
-            // console.log(id);
-            let a = document.querySelector('a[href="#'+id+'"]')
-            // console.log(a);
-            let li = a.parentNode
-            // console.log(li);
-            let children = li.parentNode.children
-            for(let i = 0; i < children.length; i++){
-                children[i].classList.remove('highlight')
-            }
-            li.classList.add('highlight')
-        }
-
-        let liTags = document.querySelectorAll('nav > ul > li')
-        for(let i=0; i<liTags.length;i++){
-            liTags[i].onmouseenter =function(x){
-                x.currentTarget.classList.add('active')
-            }
-            liTags[i].onmouseleave = function(x){
-                x.currentTarget.classList.remove('active')
-            }
-        }
-
-        let aTags = document.querySelectorAll('nav > ul > li > a')
-        // Setup the animation loop.
-        function animate(time) {
-            requestAnimationFrame(animate)
-            TWEEN.update(time)
-        }
-        requestAnimationFrame(animate)
-        
-        for(let i=0; i<aTags.length;i++){
-            aTags[i].onclick =function(x){
-                // 阻止默认动作 即浏览器锚点 你点击没有反应
-                x.preventDefault()
-                // 获取用户点击的a标签
-                let a = x.currentTarget
-                // 获取a标签的href属性 即 '#siteAbout'
-                let href = a.getAttribute('href')
-                // 根据href得到元素
-                let element = document.querySelector(href)
-                //
-                let top = element.offsetTop
-                // 让滚动条缓慢移动
-                let n = 25 // 一共动多少次
-                // 想在500毫秒 0.5秒内动25次
-                let duration = 500 / n // 多久动一次你
-                // 当前高度也就是在用户点击之前的高度
-                // 起始位置
-                let currentTop = window.scrollY
-                // 用户点击后想要定位到的高度
-                // 终止位置
-                let targetTop = top - 80
-                let s = targetTop - currentTop // 需要滚动的距离
-                let t = Math.abs((s/100)*200) // 每滚动100px需要200毫秒 t是滚动到最终距离的时间
-                // 怕滚动距离太长 滚动时间太长 滚动的速度太慢 所以设定一下滚动时间最大为500毫秒
-                if(t > 500){
-                    t = 500
-                }
-                const coords = {y: currentTop} // Start at (0, 0)
-                const tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
-                    .to({y: targetTop}, t) // Move to (300, 200) in 1 second.
-                    .easing(TWEEN.Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
-                    .onUpdate(() => {
-                        window.scrollTo(0, coords.y)
-                    })
-                    .start() // Start the tween immediately.  
-            }
-        }   
-
-
+      portfolio1.onclick= function(){
+        portfolioBar.className = 'bar state-1'
+      }
+      portfolio2.onclick= function(){
+        portfolioBar.className = 'bar state-2'
+      }
+      portfolio3.onclick= function(){
+        portfolioBar.className = 'bar state-3'
+      }
     </script>
-    </body>
+
+
+    <div class="works" style="height: 597px;">
+      <div class="big" style="top: 0; left: 0;">
+        <img src="./img/1.jpeg" alt="作品1">
+      </div>
+      <div class="small" style="top: 0; left: 645px;">
+        <img src="./img/2.jpeg" alt="作品2">
+      </div>
+      <div class="small" style="top: 312px; left: 645px;">
+        <img src="./img/3.jpeg" alt="作品3">
+      </div>
+    </div>
+
+  </section>
+  <!-- 引入TWEEN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js" integrity="sha512-fJ91rDja9nv9NCUNbvoW69MB1sQlp1d0eJt1NZDJQ1CuwcxReaXUrMCKI23yI9IMnB2hd2fq4PHZZ9UKN/i0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    setTimeout(function(){
+    siteWelcome.classList.remove('active')
+
+},1000)
+// 添加 offset 类
+let specialTags = document.querySelectorAll('[data-x]')
+for(let i =0;i<specialTags.length; i++){
+  specialTags[i].classList.add('offset')
+}
+
+findClosest()
+window.onscroll = function(x){
+  if(window.scrollY > 0){
+    topNavBar.classList.add('sticky')
+  }else{
+    topNavBar.classList.remove('sticky')
+  }
+  findClosest()
+}
+
+function findClosest(){
+  let specialTags = document.querySelectorAll('[data-x]')
+  let minIndex = 0
+  for(let i =1;i<specialTags.length; i++){
+    if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+      minIndex = i
+    }
+  }
+  // minIndex 就是里窗口顶部最近的元素
+  specialTags[minIndex].classList.remove('offset')
+  let id = specialTags[minIndex].id
+  let a = document.querySelector('a[href="#'+ id + '"]')
+  let li = a.parentNode
+  let brothersAndMe = li.parentNode.children
+  for(let i=0; i<brothersAndMe.length; i++){
+    brothersAndMe[i].classList.remove('highlight')
+  }
+  li.classList.add('highlight')
+}
+let liTags = document.querySelectorAll('nav.menu > ul > li')
+for(let i=0; i<liTags.length; i++){
+  liTags[i].onmouseenter = function(x){
+    x.currentTarget.classList.add('active')
+  }
+  liTags[i].onmouseleave = function(x){
+    x.currentTarget.classList.remove('active')
+  }
+}
+
+let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+function animate(time) {
+  requestAnimationFrame(animate);
+  TWEEN.update(time);
+}
+requestAnimationFrame(animate);
+
+for(let i=0; i<aTags.length; i++){
+  aTags[i].onclick = function(x){
+    x.preventDefault()
+    let a = x.currentTarget
+    let href = a.getAttribute('href') //'#siteAbout'
+    let element = document.querySelector(href)
+    let top = element.offsetTop
+
+    let currentTop = window.scrollY
+    let targetTop = top - 80
+    let s = targetTop - currentTop // 路程
+    var coords = { y: currentTop}; // 起始位置
+    var t = Math.abs((s/100)*300) // 时间
+    if(t>500){ t = 500 }
+    var tween = new TWEEN.Tween(coords) // 起始位置
+      .to({ y: targetTop}, t) // 结束位置 和 时间
+      .easing(TWEEN.Easing.Cubic.InOut) // 缓动类型
+      .onUpdate(function() {
+        // coords.y 已经变了
+        window.scrollTo(0,coords.y) // 如何更新界面
+      })
+      .start(); // 开始缓动
+    }
+}
+  </script>
+</body>
+
 </html>

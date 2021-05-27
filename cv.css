@@ -1,420 +1,145 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    background: #EFEFEF;
-    color: black;
-    margin: 0;
-}
-ul,ol{
-    list-style: none;
-}
-
-h1,h2,h3,h4,h5,h6{
-    font-weight: normal;
-}
-
-a{
-    /* 你爸爸啥颜色你啥颜色 就是继承的意思 */
-    color: inherit;
-    /* 去掉下划线 */
-    text-decoration: none;
-}
-.topNavBar{
-    /* padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 16px;
-    padding-right: 16px; */
-    /* 上面可以写成一句话 上右下左 */
-    /* padding: 20px 16px 20px 16px; */
-    /* 上面还可以写成 */
-    /* 前提是 上下一样 左右一样大小 */
-    padding: 20px 0px;
-    /* 脱离文档流 */
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* 发现咋么rs card和 li的内容又挤在一起了。 */
-    width: 100%;
-    /* 虽然上面加了宽度后解决了内容其在一起的bug但是出新bug 最左的全部都要出框了 这是因为我们
-    topNavBar加了    padding: 20px 16px;  属性
-    怎么办 在topNavBar上面再加一层被 然后把这个属性给外层 */
-    /* 所以动画1s内做完 */
-    transition: all 1s;
-    color: rgba(255, 255, 255, 0.7);
-    
-}
-.sticky{
-    background: white;
-    padding: 10px 0;
-    z-index: 1;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-    color: black;
-}
-.topNavBarInner{
-    padding: 0px 16px;
-
-}
-.topNavBar>.topNavBarInner>nav>ul{
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        /* border: 1px solid red; */
-    }
-.topNavBar>.topNavBarInner>nav>ul>li{
-        float: left;
-        /* border: 1px solid green; */
-        /* 添加每个字之间的间距 量一下 */
-        margin-left: 17px;
-        margin-right: 17px;
-        position: relative;
-    }
-.topNavBar>.topNavBarInner>nav>ul>li>a{
-    /* 字体默认16px 在开发者工具中找到styles旁边的computed计算出的字体大小 font-size */
-    font-size: 12px;
-    color: inherit;
-    /* 字体加粗 */
-    font-weight: bold;
-    /* 添加border 而且是透明的 等下面悬停的时候改变颜色 */
-    border: 1px solid transparent;
-    /* 好像只显示下划线更好看 */
-    border-bottom: 3px solid transparent;
-    /* 让悬停的时候显示的线离文字远一点 */
-    padding-top: 5px;
-    padding-bottom: 5px;
-    /* 但是 加边距后 外层的li标签比里面的a标签好小 也就是li包不下a */
-    display: block;
-    
-    border-top: 3px solid transparent;
-    position: relative;
-
-}
-.topNavBar>.topNavBarInner>nav>ul>li.active>a::after,
-.topNavBar>.topNavBarInner>nav>ul>li.highlight>a::after{
-    /* 当鼠标悬停在a标签上加上下面样式 */
-
-    content: '';
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #e06567;
-    height: 3px;
-    animation: menuSlide 0.3s;
-}
-@keyframes menuSlide {
-    0%{width: 0;}
-    100%{width: 100%;}
-}
-.topNavBar .subMenu{
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: #EFEFEF;
-    color: #3d4451;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-.topNavBar .subMenu > li{
-    white-space: nowrap;
-    padding: 5px 10px;
-}
-.topNavBar li.active >.subMenu{
-    display: block;
-    animation: subMenuSlide 0.3s;
-}
-@keyframes subMenuSlide {
-    0%{margin-right: 100%;}
-    100%{margin-right: 0%;}
-}
-    /* 背下下面的浮动代码 想让谁浮动就给他父级元素取名class=“clearfix” 然后对想浮动的元素的样式添加float: left; */
-.clearfix::after{
-        content: '';
-        display: block;
-        clear: both;
-}
-.topNavBar .topNavBarInner .logo{
-    font-size: 24px;
-    font-family: "fredoka One"; 
-}
-.topNavBar .topNavBarInner .logo .han{
-    margin-right: 4px;
-    color: #E6686A;
-}
-.topNavBar .topNavBarInner .logo .shanYang{
-    color: #9A9DA2;
-}
-
-.banner{
-    height: 555px;
-    background-image: url(./img/apple.jpg);
-    /* border: 1px solid red; */
-    /* 让背景图居中 */
-    background-position: center center;
-    /* 让背景自适应所在的div 这样我们拖拽窗口会自适应*/
-    background-size: cover;
-}
-.banner>.mask{
-    height: 555px;
-    /* 宽度自适应不要写 */
-    /* 背景颜色 */
-    background-color: rgba(0, 0, 0, 0.8);
-
-}
-
-.userCard{
-    /* border: 1px solid red; */
-    /* 不用宽度用最大宽度，最大宽度的意思是你最宽不能超过我 好处就是自适应*/
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #EFEFEF;
-}
-.userCard .welcome{
-    background: #E6686A;
-    color: white;
-
-/* 内敛样式不支持设置宽高上面宽高设置不生效 使用下面 */
-    display: inline-block;
-    /* 让字体居中 */
-    /* line-height: 29px;
-    text-align:center;  
-    width:78px;
-    height: 29px; */
-    /* 这集很合理 上面写4条不如自己算下差多少px 而且上面还有bug 字体如果多了超过宽度不就bug了 */
-    padding: 3.5px 16.5px;
-    /* 虽然我们算的很准确 但是呢 在不同的电脑显示的大小不一样 我们直接明确大小 */
-    line-height: 22px;
-    /* 相对定位 */
-    position: relative;
-
-    margin-bottom: 10px;
-}
-.userCard .welcome .triangle{
-    display: block;
-    border: 10px solid transparent;
-    width: 0px;
-    border-left-color: #E6686A;
-    border-top-width: 0px;
-    /* 绝对定位  子元素相对于父元素绝对定位*/
-    position: absolute;
-    /* 怎么跑左下角 */
-    left: 4px;
-    /* 发现是左下角不过是span里面的左下角 */
-    /* bottom: 0; */
-    /* 让top是span的高度 */
-    top:100%;
-}
-.userCard .picture{
-    float: left;
-}
-.userCard .text{
-    float: right;
-    margin-left: 65px;
-    width: 470px;
-}
-.userCard .pictureAndText{
-    padding: 50px;
-}
-.userCard .text h1{
-    margin-top: 18px;
-}
-
-.userCard .text hr{
-    margin: 20px 0;
-    height: 0;
-    /* border: none; */
-    border-top: 1px soild #DEDEDE;
-}
-.userCard dl dt,
-.userCard dl dd{
-    float: left;
-    padding: 5px 0;
-}
-.userCard dl dt{
-    width: 30%;
-    /* 加粗 */
-    font-weight: bold;
-}
-.userCard dl dd{
-    width: 70%;
-    color: #9da0a7;
-}
-.userCard > footer.media{ 
-    background: #e6686a;
-    text-align: center;
-}
-.userCard svg{
-    width: 30px;
-    height: 30px;
-    fill: white;
-    /* icon上下一样宽 */
-    vertical-align: top;
-}
-.userCard > footer.media > a{ 
-    /* border: 1px solid red; */
-    display: inline-block;
-    border-radius: 50%;
-    width: 40px;
-    /* height: 40px; */
-    line-height: 30px;
-    padding: 5px 0;
-    margin: 16px;
-    
-}
-.userCard > footer.media > a:hover{ 
-    background: #CF5D5F;
-
-}
-
-body>main{
-    margin-top: -400px;
-}
-
-body>main .downloadCv{
-    border: 1px solid #CDCFD1;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 21px 55px;
-    display: inline-block;
-    background: #EFEFEF;
-    border-radius: 2px;
-    color: #3d4451;
-    font-weight: bold;
-    margin: 32px 0;
-    transition: box-shadow 0.2s;
-}
-body>main .downloadCv:hover{
-    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.5);
-}
-body>main .downloadCv-wraaper{
-    text-align:center
-}
-
-.selfIntroduction{
-    /* border: 1px solid red; */
-    /* 不用宽度用最大宽度，最大宽度的意思是你最宽不能超过我 好处就是自适应*/
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: kai;
-    line-height: 1.8;
-    font-size: 18px;
-    font-weight: bold;
-}
-section.skills,
-section.portfolio{
-    margin-top: 60px;
-    /* border: 1px solid red; */
-    /* 不用宽度用最大宽度，最大宽度的意思是你最宽不能超过我 好处就是自适应*/
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-}
-section.skills>h2,
-section.portfolio>h2{
-    text-align: center;
-    color: #3d4451;
-    font-size: 34px;
-    line-height: 1.2;
-    font-weight: 600;
-}
-section.skills>ol{
-    background: white;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    padding: 42px 50px 10px;
-    margin-top: 30px;
-}
-section.skills>ol>li{
-    float: left;
-    width: 48%;
-    box-sizing: border-box;
-    padding-right: 40px;
-}
-section.skills>ol>li:nth-child(even){
-    float: right;
-}
-section.skills .progressBar{
-    height: 5px;
-    border: 1px solid #FAE1E1;
-    border-radius: 2px;
-    margin: 4px 0 40px;
-}
-section.skills .progressBar .progress{
-    height: 100%;
-    background: #E6686A;
-    width: 70%;
-    border-radius: 2px;
-}
-section.portfolio{
-    text-align: center;
-    margin-bottom: 100px;
-}
-section.portfolio > nav{
-    text-align: center;
-}
-
-section.portfolio > nav > ol{
-    /* border: 1px solid red; */
-    margin: 0 auto;
-    display:inline-block;
-    vertical-align: top;
-}
-section.portfolio > nav > ol > li{
-    float: left;
-    margin-left: 40px;
-    cursor: pointer;
-}
-section.portfolio > nav > ol > li:nth-child(1){
-    margin-left: 0px;
-}
-
-section.portfolio > nav .bar{
-    /* border: 1px solid red; */
-    height: 5px;
-    background: white;
-    margin-top: 5px;
-    margin-bottom: 28px;
-    border-radius: 2px;
-}
-section.portfolio > nav{
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 32px;
-}
-section.portfolio > nav .bar-inner{
-    /* border: 1px solid red; */
-    height: 100%;
-    background: #E6686A;
-    border-radius: 2px;
-    transition: all 0.3s;
-}
-
-section.portfolio > nav .bar.state-1 .bar-inner{
-    margin-left: 0;
-    width: 50px;
-}
-section.portfolio > nav .bar.state-2 .bar-inner{
-    margin-left: 65px;
-    width: 50px;
-}
-section.portfolio > nav .bar.state-3 .bar-inner{
-    margin-left: 140px;
-    width: 96px;
-}
-
-section.portfolio .jobs{
-    position: relative;
-    /* border: 1px solid red; */
-}
-section.portfolio .jobs > .big,
-section.portfolio .jobs > .small{
-    position: absolute;
-}
+body { background: #efefef; margin: 0; }
+a { color: inherit; text-decoration: none; }
+* { margin: 0; padding: 0; }
+hr { height: 0; border: none; border-top: 1px solid #dedede; }
+ul, ol { list-style: none; }
+h1,h2,h3,h4,h5,h6{ font-weight: normal; }
+.clearfix::after { content: ''; display: block; clear: both; }
 
 [data-x].active{
-    /* outline: 1px solid red; */
+  outline: 10px solid red;
 }
+[data-x].offset{
+  transform: translateY(100px);
+}
+[data-x]{
+  transform: translateY(0);
+  transition: all 0.5s;
+}
+@keyframes slideUp{
+  0%{
+    transform: translateY(-30px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+.topNavBar { padding: 20px 0; position: fixed; top: 0; left: 0; width: 100%; 
+  transition: all 0.5s; color: #b7b7b7;
+}
+.topNavBar.sticky{background: white;padding: 10px 0; z-index: 1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);color: #3d4451;
+}
+.topNavBar-inner { padding: 0 16px; }
+.topNavBar nav { padding-top: 5px; }
+.topNavBar nav > ul { list-style: none; margin: 0; padding: 0; }
+.topNavBar nav > ul > li { float: left; margin-left: 17px; margin-right: 17px; position: relative;}
+.topNavBar nav > ul > li > a { font-size: 12px; color: inherit; font-weight: bold; border-top: 3px solid transparent; border-bottom: 3px solid transparent;
+  padding-top: 5px; padding-bottom: 5px; display: block; position: relative;}
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after { 
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #e06567;
+  height: 3px;
+  animation: menuSlide .3s;
+}
+@keyframes menuSlide{
+  0%{ width: 0; }
+  100%{ width: 100%; }
+}
+.topNavBar .submenu{
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  color: #3d4451;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.topNavBar li.active> .submenu{
+  display: block;
+  animation: submenuSlide .3s;
+}
+@keyframes submenuSlide{
+  0%{
+    margin-right: 100%;
+  }
+  100%{
+    margin-right: 0%;
+  }
+}
+.topNavBar .submenu > li{
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+
+.topNavBar .logo { font-size: 24px; font-family: 'Arial Black'; padding-top: 3px; padding-bottom: 4px; }
+.topNavBar .logo .shanYang { margin-right: 4px; color: #e6686a; }
+.topNavBar .logo .han { color: #9a9da2; }
+.banner { height: 515px; background-image: url(./img/rs-cover.jpg); background-position: center center; background-size: cover; }
+.banner .mask { height: 515px; background-color: rgba(0, 0, 0, 0.8); }
+
+.userCard { max-width: 940px; margin-left: auto; margin-right: auto; background-color: #ffffff; box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5); }
+.userCard .welcome { background: #e6686a; color: white; display: inline-block; padding: 4px 16px;
+  line-height: 22px; position: relative; margin-bottom: 10px; }
+.userCard .welcome .triangle { display: block; border: 10px solid transparent; width: 0px; border-left-color: #e6686a;
+  border-top-width: 0px; position: absolute; left: 4px; top: 100%; }
+.userCard .picture { float: left; }
+.userCard .text { float: left; margin-left: 65px; width: 470px; }
+.userCard .text h1 { margin-top: 18px; }
+.userCard .text hr { margin: 20px 0; }
+.userCard .pictureAndText { padding: 50px; }
+.userCard dl dt, .userCard dl dd {float: left; padding: 5px 0;}
+.userCard dl dt { width: 55%; font-weight: bold; }
+.userCard dl dd { color: #9da0a7;}
+
+.userCard > footer.media { background: #e6686a; text-align: center; }
+.userCard > footer.media > a { display: inline-block; width: 40px; line-height: 30px; padding: 5px 0;
+  border-radius: 50%; margin: 16px; }
+.userCard > footer.media > a:hover { background: #cf5d5f; }
+.userCard svg { width: 30px; height: 30px; fill: white; vertical-align: top; }
+body > main { margin-top: -340px; }
+body > main .downloadResume-wrapper { text-align: center; }
+body > main .downloadResume { font-size: 14px; line-height: 16px; padding: 21px 55px; border: 1px solid #cdcfd1; background: #efefef;
+  display: inline-block; border-radius: 2px; color: #3d4451; font-weight: bold; margin: 32px 0; transition: box-shadow 0.2s; }
+
+body > main .downloadResume:hover {
+  box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
+}
+
+.selfIntroduction { max-width: 940px; margin-left: auto; margin-right: auto; text-align: center; font-family: kai; line-height: 1.8; font-size: 18px; }
+
+section.skills,
+section.portfolio{ max-width: 940px; margin-left: auto; margin-right: auto; margin-top: 60px; }
+section.skills > h2 ,
+section.portfolio > h2 { text-align: center; color: #3d4451; font-size: 34px; line-height: 1.2; font-weight: 600; }
+section.skills h3 { font-size: 14px; line-height: 1.1; padding-right: 40px; }
+section.skills > ol { background: white; box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5); padding: 42px 50px 10px; margin-top: 30px; }
+section.skills > ol > li { float: left; width: 48%; box-sizing: border-box; }
+section.skills > ol > li:nth-child(even) { float: right; } 
+section.skills .progressBar { height: 5px; background: #FAE1E1; 
+border-radius: 2px; margin: 4px 0 40px; overflow: hidden; }
+section.skills .progressBar > .progress { height: 100%; background: #E6686A; 
+width: 70%; border-radius: 2px; transform: translateX(0); transition: all 1s; }
+section.skills.offset .progress{
+  transform: translateX(-100%);
+}
+
+section.portfolio { text-align: center; margin-bottom: 100px; } 
+section.portfolio > nav{ text-align: center; }
+section.portfolio > nav > ol{ margin: 0 auto; display: inline-block; vertical-align: top; }
+section.portfolio > nav > ol > li{ float: left; margin-left: 40px; cursor: pointer; }
+section.portfolio > nav > ol > li:first-child{ margin-left: 0; }
+section.portfolio > nav{ display: inline-block; vertical-align: top; margin-top: 32px; }
+section.portfolio > nav .bar{ height: 5px; background: white; margin-top: 5px; margin-bottom: 28px; border-radius: 2px; }
+section.portfolio > nav .bar-inner{ height: 100%; background: #E6686A; border-radius: 2px; transition: all 0.3s; }
+section.portfolio > nav .bar.state-1 .bar-inner{ margin-left: 0; width: 50px; }
+section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 50px; }
+section.portfolio > nav .bar.state-3 .bar-inner{ margin-left: 140px; width: 96px; } 
+section.portfolio .works{ position: relative; } 
+section.portfolio .works > .big, section.portfolio .works > .small { position: absolute; }
