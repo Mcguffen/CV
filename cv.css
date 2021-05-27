@@ -90,7 +90,8 @@ a{
     position: relative;
 
 }
-.topNavBar>.topNavBarInner>nav>ul>li.active>a::after{
+.topNavBar>.topNavBarInner>nav>ul>li.active>a::after,
+.topNavBar>.topNavBarInner>nav>ul>li.highlight>a::after{
     /* 当鼠标悬停在a标签上加上下面样式 */
 
     content: '';

@@ -238,9 +238,7 @@
                     minIndex = i
                 }
             }
-            for(let i = 0; i < specialTags.length; i++){
-                specialTags[i].classList.remove('active')
-            }
+
             specialTags[minIndex].classList.add('active')
             let id = specialTags[minIndex].id
             // console.log(id);
@@ -250,9 +248,9 @@
             // console.log(li);
             let children = li.parentNode.children
             for(let i = 0; i < children.length; i++){
-                children[i].classList.remove('active')
+                children[i].classList.remove('highlight')
             }
-            li.classList.add('active')
+            li.classList.add('highlight')
         }
 
         let liTags = document.querySelectorAll('nav > ul > li')
