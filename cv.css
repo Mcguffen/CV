@@ -143,3 +143,81 @@ section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 50px;
 section.portfolio > nav .bar.state-3 .bar-inner{ margin-left: 140px; width: 96px; } 
 section.portfolio .works{ position: relative; } 
 section.portfolio .works > .big, section.portfolio .works > .small { position: absolute; }
+
+.menu{
+  position: relative;
+  margin: 0 45px;
+}
+/* 侧边栏 */
+.aside-toggle{
+  cursor: pointer;
+  /* border:1px solid blue; */
+  position: absolute;
+  /* float: right; */
+  top: 23px;
+  right: 23px;
+  margin-left: 17px;
+  margin-right: 17px;
+}
+.lines{
+ 
+  
+}
+.aside-toggle .lines>div{
+  position: absolute;
+  background: #fff;
+  width: 22px;
+  height: 2.5px;
+  border-radius: 100px;
+}
+.aside-toggle .lines .line-1{
+  top: 13px;
+}
+.aside-toggle .lines .line-2{
+  top: 17px;
+}
+.aside-toggle .lines .line-3{
+  top: 21px;
+}
+.hide{
+  display: none;
+}
+.sideBar{
+  position: relative;
+}
+.closed{
+  /* border: 1px solid red; */
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:#e8676b;
+  position: absolute;
+  top: 25px;
+  left: -403px;
+  
+}
+.x{
+  /* border: 1px solid yellow; */
+  width: 29px;
+  font-size: 29px;
+  line-height: 29px;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+
+
+
+}
+.sideBar-fixed{
+  z-index: 100;
+  width: 385px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  top: 0;   
+  right: 0; 
+  position: fixed;
+}

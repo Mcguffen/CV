@@ -34,6 +34,7 @@
         <span class="shanYang">Shanyang</span>
         <span class="han">Han</span>
       </a>
+      
       <nav class="menu" style="float: right;">
         <ul class="clearfix">
           <li>
@@ -69,6 +70,21 @@
           </li>
         </ul>
       </nav>
+      <!-- 侧边栏 -->
+      <div class="aside-toggle">
+        <div class="lines">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+        </div>
+        <div class="sideBar hide">
+            <div class="closed"><div class="x">X</div></div>
+            <div class="sideBar-fixed">
+                我是侧边栏
+            </div>
+        </div>
+      </div>
+
     </div>
   </div>
   <div class="banner">
@@ -310,6 +326,19 @@ for(let i=0; i<aTags.length; i++){
       })
       .start(); // 开始缓动
     }
+}
+
+// 侧边栏
+let sb = document.querySelector('.sideBar')
+let lines = document.querySelector('.lines')
+lines.onclick = function(e){
+    sb.classList.remove('hide')
+
+}
+
+let closed = document.querySelector('.sideBar > .closed')
+closed.onclick = function(e){
+    sb.classList.add('hide')
 }
   </script>
 </body>
